@@ -29,5 +29,8 @@ client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 data = input("send : ")
 client.sendto(data, (target_host, target_port))
 
-# recieving data
+# recieving and printing the data
 data, addr = client.recvfrom(4096)
+print(f"{addr}: {data}")
+
+
