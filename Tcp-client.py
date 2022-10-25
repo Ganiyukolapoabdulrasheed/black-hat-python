@@ -1,23 +1,15 @@
 import socket 
 
-def targethost():
-    try: 
-        target_host = int(input("What is the target host"))
-        return target_host 
-    except ValueError as error:
-        print(f"You have made a/an {error}, no strings are allowed")
-        return targethost()
-
 def targetport():
     try:
-        target_port = int(input("target port"))
+        target_port = int(input("target port: "))
         return target_port
     except ValueError as error:
         print(f"You made a/an {error}, No strings are allowed ")
         return targetport()
 
 # Getting the target host and port
-target_host = targethost()
+target_host = input("IP address:")
 target_port = targetport()
 
 # creating ipv4 with tcp connection
@@ -33,6 +25,8 @@ client.send(data)
 # recieving and printing data
 data, addr = client.recv(4096)
 print(f"{addr} : {data}")
+
+client.close()
 
 
 
